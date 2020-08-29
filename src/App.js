@@ -15,10 +15,10 @@ const [inputValue, setInputValue] = useState('');
    </Header>
     
    <div className="container">
-     <div className="input-c">
-   <textarea value={inputValue} onChange={e => setInputValue(e.target.value)}></textarea>
-   </div>
-   <div className="output-c">
+   
+   <textarea className="container-item input-c" value={inputValue} onChange={e => setInputValue(e.target.value)} placeholder="Write your markdown text here"></textarea>
+   
+   <div className="container-item output-c">
      <div dangerouslySetInnerHTML={{__html:converter.makeHtml(inputValue)}}></div>
    {/* {converter.makeHtml(inputValue)} */}
    </div>
