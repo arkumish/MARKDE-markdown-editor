@@ -1,11 +1,36 @@
 import React, { useState } from 'react';
 import Header from './Header/Header';
 import "./index.css";
+import "./github-markdown.css";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 
+
+import sample from './sample';
 import marked from 'marked';
+
+marked.setOptions({
+  renderer : new marked.Renderer(),
+  baseUrl: null,
+  breaks: true,
+  gfm: true,
+  headerIds: true,
+  headerPrefix: "",
+  highlight: null,
+  langPrefix: "language-",
+  mangle: true,
+  pedantic: false,
+  sanitize: false,
+  sanitizer: null,
+  silent: false,
+  smartLists: false,
+  smartypants: false,
+  tokenizer: null,
+  walkTokens: null,
+  xhtml: false
+
+})
 
 
 function App() {
@@ -13,6 +38,8 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [value, setValue] = useState(0);
   const [inputTabValue, setInputTabValue] = useState(0);
+
+  
 
 
   const outputHandleChange = (event, newValue) => {
@@ -26,7 +53,7 @@ function App() {
         setInputValue('');
         break;
       case 1:
-        setInputValue('#sdop');
+        setInputValue(sample);
         break;
       default:
       return 0;
@@ -37,9 +64,9 @@ function App() {
   const outputRenderSwitch = (param) => {
     switch (param) {
       case 0:
-        return <div dangerouslySetInnerHTML={{ __html: marked(inputValue, { sanitize: true }) }}></div>;
+        return <div dangerouslySetInnerHTML={{ __html: marked(inputValue) }}></div>;
       case 1:
-        return marked(inputValue, { sanitize: true })
+        return marked(inputValue)
       default:
         return;
     }
@@ -48,7 +75,9 @@ function App() {
   return (
     <>
       <Header>
+     
       </Header>
+      
       <div className="container">
 
 
@@ -84,7 +113,7 @@ function App() {
 
             </Tabs>
           </AppBar>
-          <div className="body-output">
+          <div className="body-output markdown-body">
             {outputRenderSwitch(value)}
 
           </div>
