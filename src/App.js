@@ -10,6 +10,24 @@ import AppBar from '@material-ui/core/AppBar';
 import sample from './sample';
 import marked from 'marked';
 
+
+const render_tasklist = function(str){
+  // Checked task-list box match
+ 
+  str = str.toString();
+ 
+  if(str.match(/<li><input.*<\/li>/gi)){
+   
+    str = str.replace(/(<li>)(<input.*<\/li>)/gi, 
+      `<li style="list-style-type: none;">$2`);
+}
+  
+   
+    return str
+}
+
+// require('./emojify.js');
+
 marked.setOptions({
   renderer : new marked.Renderer(),
   baseUrl: null,
@@ -64,9 +82,9 @@ function App() {
   const outputRenderSwitch = (param) => {
     switch (param) {
       case 0:
-        return <div dangerouslySetInnerHTML={{ __html: marked(inputValue) }}></div>;
+        return <div dangerouslySetInnerHTML={{ __html: render_tasklist(marked(inputValue)) }}></div>;
       case 1:
-        return marked(inputValue)
+        return render_tasklist(marked(inputValue))
       default:
         return;
     }
@@ -83,15 +101,16 @@ function App() {
 
 
         <div className="container-item input-c">
-          <AppBar position="static" style={{ padding: 0 }}>
-            <Tabs
+          <AppBar position="static" style={{ padding: 0}}>
+            <Tabs style={{minHeight:'12px'}}
+             size="small"
               value={inputTabValue}
               indicatorColor="secondary"
               onChange={inputHandleChange}
               aria-label="input tabs example"
             >
-              <Tab label="Start New" />
-              <Tab label="Load Sample" />
+              <Tab  style={{minHeight:'12px'}} label="Start New" />
+              <Tab  style={{minHeight:'12px'}} label="Load Sample" />
             </Tabs>
           </AppBar>
 
@@ -115,6 +134,8 @@ function App() {
           </AppBar>
           <div className="body-output markdown-body">
             {outputRenderSwitch(value)}
+            {console.log(render_tasklist(marked(inputValue)))}
+          
 
           </div>
         </div>
