@@ -1,9 +1,6 @@
 
 .container-item {
     width: 48%;
-    /* height: 500px; */
-  
-  
     padding: 15px;
     background: white;
     border-radius: 5px !important;
@@ -21,19 +18,27 @@
       0 100px 80px rgba(0, 0, 0, 0.12)
   }
   
-  .input-c {
+  
+  
+  
+  .output-c {
+    background-color: white;
     padding: 0px !important;
-  }
   
-  .input-c textarea {
-   
-    padding: 5px;
-    width: 100%;
-    outline: none;
+  }
+ 
+  
+  .body-output {
+    padding: 15px !important;
     height: 500px;
-    resize: none;
-    border-width: 0px;
-    word-wrap: break-word;
+    overflow: auto;
+  }
   
+  .output-c img {
+    max-width: 100%;
+    box-sizing: initial;
+    background-color: #fff;
   
   }
+  
+  

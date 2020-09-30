@@ -4,15 +4,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 
-
-import sample from '../sample';
-
-
+import sample from '../../sample';
 
 const Inputbox = ({inputUpdate}) => {
 
   const [inputValue, setInputValue] = useState('');
-
   const [inputTabValue, setInputTabValue] = useState(0);
 
  const updateInputValue = (event) =>{
@@ -64,4 +60,3 @@ export default Inputbox
 
 
 
-// <input type="text" onChange={e =>callbck(e.target.value)} placeholder="Type Something in Child One"/>

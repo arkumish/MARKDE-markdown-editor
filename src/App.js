@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import Header from './Header/Header';
 import "./index.css";
-import Inputbox from './Inputbox/Inputbox';
-import Outputbox from './Outputbox/Outputbox';
+import Header from './component/Header/Header';
+import Outputbox from './component/Outputbox/Outputbox';
+import Inputbox from './component/Inputbox/Inputbox';
 
 export class App extends Component {
     constructor() {
         super();
         this.state = {
             inputValue: "",
-            // convertedValue: "",
-            // value:"",
             gfmMode: true,
         }
     }
@@ -24,7 +22,7 @@ export class App extends Component {
 
     UpdateGfmMode(status) {
         this.setState({
-            gfm: status
+            gfmMode: status
         })
     }
 
@@ -33,13 +31,13 @@ export class App extends Component {
 
 render() {
     return (
-        <div>
-            <Header></Header>
+        <>{console.log("gfm", this.state.gfmMode)}
+            <Header gfmUpdate={this.UpdateGfmMode.bind(this)}></Header>
             <div className="container">
-            <Inputbox inputUpdate={this.UpdateInputValue.bind(this)}></Inputbox>
-            <Outputbox inputValue={this.state.inputValue} />
+            <Inputbox className="container-item" inputUpdate={this.UpdateInputValue.bind(this)}></Inputbox>
+            <Outputbox inputValue={this.state.inputValue} gfmMode={this.state.gfmMode} />
             </div>
-        </div>
+        </>
     )
 }
 }

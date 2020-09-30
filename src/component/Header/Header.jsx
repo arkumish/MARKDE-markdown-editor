@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SaveIcon from '@material-ui/icons/Save';
 import PublishIcon from '@material-ui/icons/Publish';
 
-function Header() {
+function Header({gfmUpdate}) {
     const [state, setState] = useState({
         gfmOff: true
     });
@@ -22,6 +22,7 @@ function Header() {
         const status = event.target.checked;
 
         setState({ gfmOff: status });
+        gfmUpdate(!state.gfmOff);
         if (state.gfmOff === true) {
             setGithubToolTip('Github Mode Off');
         } else {
