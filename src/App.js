@@ -32,7 +32,7 @@ export class App extends Component {
 render() {
     return (
         <>{console.log("gfm", this.state.gfmMode)}
-            <Header gfmUpdate={this.UpdateGfmMode.bind(this)}></Header>
+            <Header gfmUpdate={this.UpdateGfmMode.bind(this)} inputValue={this.state.inputValue}></Header>
             <div className="container">
             <Inputbox className="container-item" inputUpdate={this.UpdateInputValue.bind(this)}></Inputbox>
             <Outputbox inputValue={this.state.inputValue} gfmMode={this.state.gfmMode} />

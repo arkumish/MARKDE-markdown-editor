@@ -4,27 +4,10 @@ import "./github-markdown.css";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
-import marked from 'marked';
+import markdown_convertor from "../../service/converter";
 
 const Outputbox = ({ inputValue, gfmMode }) => {
   const [inputTabValue, setInputTabValue] = useState(0);
-
-  marked.setOptions({
-    renderer: new marked.Renderer(),
-    gfm: gfmMode,
-  })
-
-  const render_tasklist = function (str) {  // Checked task-list box match
-    str = str.toString();
-
-    if (gfmMode) {  // to add only if gfm mode is on
-      if (str.match(/<li><input.*<\/li>/gi)) {
-        str = str.replace(/(<li>)(<input.*<\/li>)/gi,
-          `<li style="list-style-type: none;">$2`);
-      }
-    }
-    return str
-  }
 
   const outputHandleChange = (event, newInputTabValue) => {
     setInputTabValue(newInputTabValue);
@@ -33,9 +16,9 @@ const Outputbox = ({ inputValue, gfmMode }) => {
   const outputRenderSwitch = (param) => {
     switch (param) {
       case 0:
-        return <div dangerouslySetInnerHTML={{ __html: render_tasklist(marked(inputValue)) }}></div>;
+        return <div dangerouslySetInnerHTML={{ __html: markdown_convertor(inputValue,gfmMode) }}></div>;
       case 1:
-        return render_tasklist(marked(inputValue))
+        return markdown_convertor(inputValue,gfmMode)
       default:
         return;
     }

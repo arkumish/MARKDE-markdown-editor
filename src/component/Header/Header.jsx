@@ -8,10 +8,10 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 
-import SaveIcon from '@material-ui/icons/Save';
-import PublishIcon from '@material-ui/icons/Publish';
+import GetApp from '@material-ui/icons/GetApp';
+import download_file from '../../service/downloadFile';
 
-function Header({gfmUpdate}) {
+function Header({gfmUpdate,inputValue}) {
     const [state, setState] = useState({
         gfmOff: true
     });
@@ -30,6 +30,10 @@ function Header({gfmUpdate}) {
         }
         console.log(state, event.target.value, event)
     };
+    // function handleDownload(e) {
+    //     e.preventDefault();
+    //     download_file(inputValue)
+    //   }
     return (
         <div className="nav">
             <AppBar position="static">
@@ -40,12 +44,11 @@ function Header({gfmUpdate}) {
 
                     <div className="menu-option">
                 
-                    <IconButton aria-label="Upload" style={{ color: "black" }}>
-                            <PublishIcon />
+                    <Tooltip title="Download Markdown File" aria-label="Toggle Github Mode">
+                        <IconButton onClick={() => { download_file(inputValue); }} aria-label="Download" style={{ color: "black" }} >
+                            <GetApp />
                         </IconButton>
-                        <IconButton aria-label="Download" style={{ color: "black" }}>
-                            <SaveIcon />
-                        </IconButton>
+                    </Tooltip>    
                         <Tooltip title={githubToolTip} aria-label="Toggle Github Mode">
                             <Switch
                                 style={{ color: "black" }}
