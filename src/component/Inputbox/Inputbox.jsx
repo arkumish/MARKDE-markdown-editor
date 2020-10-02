@@ -9,20 +9,23 @@ import sample from '../../sample';
 const Inputbox = ({inputUpdate}) => {
 
   const [inputValue, setInputValue] = useState('');
+  const [userInput, setUserInput] = useState('');
   const [inputTabValue, setInputTabValue] = useState(0);
 
  const updateInputValue = (event) =>{
-    console.log("i m here");
-    setInputValue(event.target.value);
-    inputUpdate(inputValue);
+   let value = event.target.value
+    setUserInput(value); 
+    setInputValue(value);
+    inputUpdate(value);
+   
  }
 
   const inputHandleChange = (event, newInputTabValue) => {
     setInputTabValue(newInputTabValue);
     switch (newInputTabValue) {
       case 0:
-        inputUpdate('')
-        setInputValue('');
+        inputUpdate(userInput)
+        setInputValue(userInput);
         break;
       case 1:
         inputUpdate(sample);
@@ -49,7 +52,7 @@ const Inputbox = ({inputUpdate}) => {
             </Tabs>
           </AppBar>
 
-          <textarea value={inputValue} type="text" onChange={updateInputValue} placeholder="Write your markdown text here">
+          <textarea value={inputValue} type="text" onInput={updateInputValue}  placeholder="Write your markdown text here">
           </textarea>
              </div>
     

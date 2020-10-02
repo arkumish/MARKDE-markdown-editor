@@ -14,10 +14,11 @@ export class App extends Component {
     }
 
     UpdateInputValue(param) {
+        console.log(param);
         this.setState({
             inputValue: param
         })
-     
+     console.log(this.state.inputValue);
     }
 
     UpdateGfmMode(status) {
