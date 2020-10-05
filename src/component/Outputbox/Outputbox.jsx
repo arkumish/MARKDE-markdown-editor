@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import "./index.css";
+import "../../common.css"
 import "./github-markdown.css";
+
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
@@ -24,10 +26,10 @@ const Outputbox = ({ inputValue, gfmMode }) => {
     }
   }
   return (
-    <div className="container-item output-c">
-      <AppBar position="static" style={{ padding: 0 }}>
+    <div className="container-item output-c br-top br-left">
+      <AppBar position="static" style={{ padding: 0,backgroundColor:"black" }}>
         <Tabs style={{minHeight:'12px'}}
-          inputTabValue={inputTabValue}
+          value={inputTabValue}
           indicatorColor="secondary"
           onChange={outputHandleChange}
           aria-label="output tabs example"

@@ -3,7 +3,7 @@ const sample = `
 
 ### Contents
 1. [Overview](#overview)
-2. [Basic Architecture](#basic-Architecture)
+2. [Basic-Architecture](#basic-architecture)
 3. [Setup](#setup)
 4. [Demo](#demo)
 5. [Routes Used](#routes)

@@ -9,38 +9,36 @@ export class App extends Component {
         super();
         this.state = {
             inputValue: "",
-            gfmMode: true,
+            githubMode: true,
         }
     }
 
-    UpdateInputValue(param) {
-        console.log(param);
+    handleStateUpdate = (stateName, value) => {
+        console.log(stateName,value)
         this.setState({
-            inputValue: param
+            [stateName]: value
         })
-     console.log(this.state.inputValue);
+
     }
 
-    UpdateGfmMode(status) {
-        this.setState({
-            gfmMode: status
-        })
+    render() {
+        return (
+            <>
+                <Header
+                    githubModeUpdate={this.handleStateUpdate}
+                    inputValue={this.state.inputValue}
+                />
+
+                <div className="container">
+                    <Inputbox inputValueUpdate={this.handleStateUpdate} />
+                    <Outputbox
+                        inputValue={this.state.inputValue}
+                        gfmMode={this.state.githubMode}
+                    />
+                </div>
+            </>
+        )
     }
-
-    
-
-
-render() {
-    return (
-        <>{console.log("gfm", this.state.gfmMode)}
-            <Header gfmUpdate={this.UpdateGfmMode.bind(this)} inputValue={this.state.inputValue}></Header>
-            <div className="container">
-            <Inputbox className="container-item" inputUpdate={this.UpdateInputValue.bind(this)}></Inputbox>
-            <Outputbox inputValue={this.state.inputValue} gfmMode={this.state.gfmMode} />
-            </div>
-        </>
-    )
-}
 }
 
 export default App
