@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import "./index.css";
 import Header from './component/Header/Header';
-import Outputbox from './component/Outputbox/Outputbox';
-import Inputbox from './component/Inputbox/Inputbox';
+import Outputbox from './component/OutputBox/OutputBox';
+import InputBox from './component/InputBox/InputBox';
 
 export class App extends Component {
     constructor() {
@@ -14,7 +14,6 @@ export class App extends Component {
     }
 
     handleStateUpdate = (stateName, value) => {
-        console.log(stateName,value)
         this.setState({
             [stateName]: value
         })
@@ -26,14 +25,15 @@ export class App extends Component {
             <>
                 <Header
                     githubModeUpdate={this.handleStateUpdate}
+                    isGithubModeSelected = {this.state.githubMode}
                     inputValue={this.state.inputValue}
                 />
 
                 <div className="container">
-                    <Inputbox inputValueUpdate={this.handleStateUpdate} />
+                    <InputBox inputValueUpdate={this.handleStateUpdate} inputValue={this.state.inputValue} />
                     <Outputbox
                         inputValue={this.state.inputValue}
-                        gfmMode={this.state.githubMode}
+                        githubMode={this.state.githubMode}
                     />
                 </div>
             </>

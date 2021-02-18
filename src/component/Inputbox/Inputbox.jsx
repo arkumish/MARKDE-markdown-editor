@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import "./index.css";
 import "../../common.css"
 import Tabs from '@material-ui/core/Tabs';
@@ -7,61 +7,60 @@ import AppBar from '@material-ui/core/AppBar';
 
 import sample from '../../sample';
 
-const Inputbox = ({inputValueUpdate}) => {
+const InputBox = ({ inputValueUpdate, inputValue }) => {
+  // const [inputTabValue, setInputTabValue] = useState({
+  //   tab1 : '',
+  //   tab2 : sample
+  // })
+  const [startNewInputvalue, setStartNewInputvalue] = useState('');
+  const [selectedTab, setSelectedTab] = useState(0);
 
-  const [inputValue, setInputValue] = useState('');
-  const [userInput, setUserInput] = useState('');
-  const [inputTabValue, setInputTabValue] = useState(0);
+  const updateInputValue = (event) => {
+    let value = event.target.value
+    setStartNewInputvalue(value);
+    inputValueUpdate("inputValue", value);
 
- const updateInputValue = (event) =>{
-   let value = event.target.value
-    setUserInput(value); 
-    setInputValue(value);
-    inputValueUpdate("inputValue",value);
-   
- }
+  }
 
-  const inputHandleChange = (event, newInputTabValue) => {
-    setInputTabValue(newInputTabValue);
-    switch (newInputTabValue) {
+  const inputHandleChange = (event, newSelectedTab) => {
+    setSelectedTab(newSelectedTab);
+    console.log(newSelectedTab);
+    switch (newSelectedTab) {
       case 0:
-        inputValueUpdate("inputValue",userInput)
-        setInputValue(userInput);
+        inputValueUpdate("inputValue", startNewInputvalue)
         break;
       case 1:
-        inputValueUpdate("inputValue",sample);
-        setInputValue(sample);
+        inputValueUpdate("inputValue", sample);
         break;
       default:
-      return 0;
+        return 0;
     }
   };
 
 
-    return (
-             <div className="container-item input-c br-top br-right">
-             <AppBar position="static" style={{ padding: 0,backgroundColor:"black"}}>
-            <Tabs style={{minHeight:'12px'}}
-             size="small"
-              value={inputTabValue}
+  return (
+    <div className="container-item input-c br-top br-right">
+        <AppBar position="static" style={{ padding: 0, backgroundColor: "black" }}>
+            <Tabs style={{ minHeight: '12px' }}
+              size="small"
+              value={selectedTab}
               indicatorColor="secondary"
               onChange={inputHandleChange}
               aria-label="input tabs"
             >
-              <Tab  style={{minHeight:'12px'}} label="Start New" />
-              <Tab  style={{minHeight:'12px'}} label="Load Sample" />
+              <Tab style={{ minHeight: '12px' }} label="Start New" />
+              <Tab style={{ minHeight: '12px' }} label="Load Sample" />
             </Tabs>
-          </AppBar>
-          
+        </AppBar>
 
-          <textarea value={inputValue} type="text" onInput={updateInputValue}  placeholder="Write your markdown text here">
-          </textarea>
-             </div>
-    
-    )
+
+        <textarea value={inputValue} type="text" onInput={updateInputValue} placeholder="Write your markdown text here"/>
+    </div>
+
+  )
 }
 
-export default Inputbox
+export default InputBox
 
 
 
