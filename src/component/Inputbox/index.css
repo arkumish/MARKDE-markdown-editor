@@ -8,7 +8,9 @@
     padding: 5px;
     width: 100%;
     outline: none;
-    height: 500px;
+    height: -moz-calc(100vh - 120px);
+    height: -webkit-calc(100vh - 120px);
+    height: calc(100vh - 120px);
     resize: none;
     border-width: 0px;
     word-wrap: break-word;

@@ -33,7 +33,7 @@ const Header = ({ githubModeUpdate, isGithubModeSelected, inputValue }) => {
             <div className="nav">
                 <AppBar position="static" style={{ backgroundColor: "#2a2f32" }}>
                     <Toolbar>
-                        <img src={TopIcon} alt="markdown editor"></img>
+                        <img src={TopIcon} className="header-icon" alt="markdown editor"></img>
                         <div className="menu-option">
                             <Tooltip title={githubToolTip} aria-label="Toggle Github Mode">
                                 <Switch

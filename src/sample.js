@@ -68,13 +68,13 @@ const sample = `
                 
 
 ## Characters            
--       ~~Strikethrough~~ 
--      *Italic*  
--     **Emphasis** 
--     ***Emphasis Italic***
--    Superscript: X<sub>2</sub>
--    Subscript: O<sup>2</sup>
--  **Abbreviation(link HTML abbr tag)**
+- ~~Strikethrough~~ 
+- *Italic*  
+- **Emphasis** 
+- ***Emphasis Italic***
+- Superscript: X<sub>2</sub>
+- Subscript: O<sup>2</sup>
+- **Abbreviation(link HTML abbr tag)**
      The <abbr title="Hyper Text Markup Language">HTML</abbr> is not programming language.
 
 

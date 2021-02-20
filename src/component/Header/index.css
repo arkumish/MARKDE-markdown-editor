@@ -5,11 +5,16 @@
 .menu-option{
    
     border-radius: 30px;
-    z-index: 10;
-    position: absolute;
-    right: 0;
     margin-right: 10px;
     padding : 0 5px 0 5px;
     color:black
     
 }
+.header-icon{
+    margin-right: auto;
+}
+
+.MuiToolbar-regular{
+    display: flex;
+    flex-wrap: wrap;
+} 
