@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import "./index.css";
+import "./common.css"
 import Header from './component/Header/Header';
 import Outputbox from './component/OutputBox/OutputBox';
 import InputBox from './component/InputBox/InputBox';
-
 export class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            inputValue: "",
-            githubMode: true,
-        }
+    state = {
+        inputValue: '',
+        githubMode: true,
     }
+
 
     handleStateUpdate = (stateName, value) => {
         this.setState({
@@ -25,7 +23,7 @@ export class App extends Component {
             <>
                 <Header
                     githubModeUpdate={this.handleStateUpdate}
-                    isGithubModeSelected = {this.state.githubMode}
+                    isGithubModeSelected={this.state.githubMode}
                     inputValue={this.state.inputValue}
                 />
 

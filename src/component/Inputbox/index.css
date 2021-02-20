@@ -21,3 +21,20 @@
   
   
   }
+
+  .MuiTabPanel-root{
+    padding: 0 !important;
+  }
+  .MuiTab-wrapper {
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+}
+
+.MuiFab-root{
+  min-height: 25px !important;
+  width: 25px !important;
+  height: 25px !important;
+}

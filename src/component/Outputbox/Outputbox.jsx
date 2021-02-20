@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import "./index.css";
-import "../../common.css"
 import "./github-markdown.css";
 
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
+import {Tabs,Tab,AppBar} from '@material-ui/core';
 import markdownConverterService from "../../service/converter";
 
 const OutputBox = ({ inputValue, githubMode }) => {
@@ -35,8 +32,8 @@ const OutputBox = ({ inputValue, githubMode }) => {
             onChange={outputHandleChange}
             aria-label="Output option tab "
           >
-            <Tab style={{ minHeight: '12px' }} label="Preview" />
-            <Tab style={{ minHeight: '12px' }} label="Raw" />
+            <Tab  label="Preview" />
+            <Tab label="Raw" />
 
          </Tabs>
       </AppBar>
