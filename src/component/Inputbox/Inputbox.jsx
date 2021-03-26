@@ -7,16 +7,15 @@ import Close from "@material-ui/icons/Close";
 import sample from '../../sample';
 
 
-const InputBox = ({ inputValueUpdate, inputValue }) => {
+const InputBox = ({ inputValueUpdate}) => {
 
   const [tabList, setTabList] = useState([
-    {
-      id: 0,
-      input: sample,
+    { input: sample,
       label: "Sample"
     }
   ]);
   const [tabValue, setTabValue] = useState(0);
+  const [tabCounter, setTabCounter] = useState(0);
 
   useEffect(() => {
     inputValueUpdate("inputValue", tabList[0].input);
@@ -28,47 +27,43 @@ const InputBox = ({ inputValueUpdate, inputValue }) => {
   };
 
   const addTab = () => {
-    let id = tabList[tabList.length - 1].id + 1;
-    setTabList([...tabList, { id: id, input: '', label: `Tab ${id + 1}` }]);
-    setTabValue(id);
+    let id = tabList.length + 1;
+    setTabList([...tabList, { input: '', label: `Tab ${tabCounter + 1}` }]);
+    setTabValue(id - 1);
     inputValueUpdate("inputValue", '');
+    setTabCounter(tabCounter + 1);
+
   };
 
-  const deleteTab = e => {
+  const deleteTab = (indexToDelete) => (e) => {
     e.stopPropagation();
-    if (tabList.length === 1) {
+    const tabCount = tabList.length;
+    if (tabCount === 1) {
       return;
     }
-    let tabId = parseInt(e.target.id);
-    let tabIDIndex = 0;
 
-    let tabs = tabList.filter((value, index) => {
-      if (value.id === tabId) {
-        tabIDIndex = index;
-      }
-      return value.id !== tabId;
-    });
+    let tempTabList = [...tabList];
+    tempTabList.splice(indexToDelete, 1);
+    setTabList(tempTabList);
 
-    let curValue = parseInt(tabValue);
-    if (curValue === tabId) {
-      if (tabIDIndex === 0) {
-        curValue = tabList[tabIDIndex + 1].id;
-      } else {
-        curValue = tabList[tabIDIndex - 1].id;
-      }
+    let newCurrentTab;
+    if (indexToDelete <= tabValue) //to delete current tab
+    {
+      newCurrentTab = indexToDelete
+      inputValueUpdate("inputValue", tabList[newCurrentTab].input);
+      setTabValue(newCurrentTab);
     }
-    setTabValue(curValue);
-    setTabList(tabs);
-    inputValueUpdate("inputValue", tabList[curValue].input);
+
   };
 
   const updateInputValue = (event) => {
     let newArr = [...tabList];
     newArr[tabValue].input = event.target.value;
+    console.log("tab value", tabValue);
     setTabList(newArr);
     inputValueUpdate("inputValue", event.target.value);
-
   }
+
   return (
     <div className="container-item input-c br-top br-right">
       <TabContext value={tabValue}>
@@ -83,14 +78,13 @@ const InputBox = ({ inputValueUpdate, inputValue }) => {
                 indicatorColor="secondary"
                 variant="scrollable"
                 scrollButtons="on"
-
               >
-                {tabList.map(tab => (
+                {tabList.map((tab, index) => (
                   <Tab
-                    key={tab.id.toString()}
-                    value={tab.id}
+                    key={index.toString()}
+                    value={index}
                     label={tab.label}
-                    icon={<Close id={tab.id} onClick={deleteTab} />}
+                    icon={<Close id={index} onClick={deleteTab(index)} />}
                     className="mytab"
                     style={{ minHeight: '12px' }}
                   />
@@ -106,10 +100,10 @@ const InputBox = ({ inputValueUpdate, inputValue }) => {
             </Grid>
           </Grid>
         </AppBar>
-        {tabList.map(tab => (
+        {tabList.map((tab, index) => (
           <TabPanel
-            key={tab.id.toString()}
-            value={tab.id}
+            key={index.toString()}
+            value={index}
           >
             <textarea value={tab.input} type="text" onInput={updateInputValue} placeholder="Write your markdown text here" />
           </TabPanel>
@@ -118,7 +112,6 @@ const InputBox = ({ inputValueUpdate, inputValue }) => {
       </TabContext>
 
     </div>
-
   )
 }
 

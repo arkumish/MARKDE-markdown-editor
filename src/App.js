@@ -10,7 +10,6 @@ export class App extends Component {
         githubMode: true,
     }
 
-
     handleStateUpdate = (stateName, value) => {
         this.setState({
             [stateName]: value
@@ -28,7 +27,7 @@ export class App extends Component {
                 />
 
                 <div className="container">
-                    <InputBox inputValueUpdate={this.handleStateUpdate} inputValue={this.state.inputValue} />
+                    <InputBox inputValueUpdate={this.handleStateUpdate} />
                     <Outputbox
                         inputValue={this.state.inputValue}
                         githubMode={this.state.githubMode}

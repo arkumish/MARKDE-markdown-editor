@@ -67,7 +67,7 @@ const sample = `
 3. Item C
                 
 
-## Characters            
+# Characters            
 - ~~Strikethrough~~ 
 - *Italic*  
 - **Emphasis** 
@@ -78,7 +78,7 @@ const sample = `
      The <abbr title="Hyper Text Markup Language">HTML</abbr> is not programming language.
 
 
-## Blockquotes
+# Blockquotes
 
 > Blockquotes
 
@@ -87,7 +87,7 @@ Paragraphs and Line Breaks
 > "Blockquotes Blockquotes", [Link](http://localhost/)。
 
 
-## Links
+# Links
 
 [Links](http://localhost/)
 
@@ -100,7 +100,7 @@ Paragraphs and Line Breaks
 [id/name]: http://link-url/
 
 
-## CodeBlocks
+# CodeBlocks
 
 #### Inline code
 
@@ -144,7 +144,7 @@ console.log(myFunction(3,5))
 </html>
 \`\`\`
 
-### Images
+# Images
 
 Image:
 
@@ -162,7 +162,7 @@ Image:
                 
 ----
      
-## Tables
+# Tables
                    
 | First Header  | Second Header |
 | ------------- | ------------- |
@@ -198,7 +198,7 @@ X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
 18&ordm;C  &quot;  &apos;
 
 
-## TaskList
+# TaskList
 
 - [x] GFM task list 1
 - [ ] GFM task list 2
@@ -206,7 +206,7 @@ X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
 - [ ] GFM task list 4
   
 
-## Emojis
+# Emojis
 
 😀 😃 😄 😁 😆 😅 😂 🤣 ☺️ 😊 😇 🙂 🙃 😉 😌 😍 🥰 😘 😗 😙 😚 😋 😛 😝 😜 🤪 🤨 🧐 🤓 😎 🤩 🥳 😏 😒 😞 😔 😟 😕 🙁 ☹️ 😣 😖 😫 😩 🥺 😢 😭 😤 😠 😡 🤬 🤯 😳 🥵 🥶 😱 😨 😰 😥 😓 🤗 🤔 🤭 🤫 🤥 😶 😐 😑 😬 🙄 😯 😦 😧 😮 😲 🥱 😴 🤤 😪 😵 🤐 🥴 🤢 🤮 🤧 😷 🤒 🤕 🤑 🤠 😈 👿 👹 👺 🤡 💩 👻 💀 ☠️ 👽 👾 🤖 🎃 😺 😸 😹 😻 😼 😽 🙀 😿 😾
 
