@@ -2,6 +2,8 @@
 ![Markde logo)](https://user-images.githubusercontent.com/31367960/95095231-6b0d3700-0748-11eb-8308-2b2401610736.png)
 ----
 
+<a href="https://www.producthunt.com/posts/markde?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-markde" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=295300&theme=light" alt="MARKDE - An editor for writing multiple formats of markdown text✍️ | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 ## Features
 
 - Support Standard Markdown / CommonMark and GFM(GitHub Flavored Markdown);

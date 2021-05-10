@@ -9,8 +9,10 @@
   
   .body-output {
     padding: 15px !important;
-    height: 500px;
     overflow: auto;
+    height: -moz-calc(100vh - 120px);
+    height: -webkit-calc(100vh - 120px);
+    height: calc(100vh - 120px);
     
   }
   
